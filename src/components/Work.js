@@ -1,13 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const Work = ({
   specification,
   vatAmount,
-  vatPrice,
   totalPrice,
   isCreditInvoice,
   invoiceDays,
-  invoiceDescription
 }) => {
 
   return (

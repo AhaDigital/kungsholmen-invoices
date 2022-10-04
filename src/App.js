@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 
 import Header from './components/Header';
 import Work from './components/Work';
@@ -8,15 +8,10 @@ const App = () => {
   const [invoiceNumber, setInvoiceNumber] = useState(0)
   const [invoiceDate, setInvoiceDate] = useState(moment().format('YYYY-MM-DD'))
   const [invoiceTitle, setInvoiceTitle] = useState()
-  const [invoiceDescription, setInvoiceDescription] = useState()
   const [specification, setSpecification] = useState([])
   const [isCreditInvoice, setIsCreditInvoice] = useState(false)
-  const [vatAmount, setVatAmount] = useState(0)
-  const [vatPrice, setVatPrice] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
   const [invoiceDays, setInvoiceDays] = useState()
-  const [companies, setCompanies] = useState()
-  const [useCompany, setUseCompany] = useState()
 
   const editRow = (row, event) => {
     const editSpec = [...specification]
@@ -40,7 +35,7 @@ const App = () => {
     let totalExVat = 0
     let withVat = 0
 
-    let vat = parseFloat(vatAmount)
+    let vat = 0
 
     Object.keys(specification).map((spec) => {
       return totalExVat += parseFloat(specification[spec].hours) * parseFloat(specification[spec].price)
@@ -48,7 +43,6 @@ const App = () => {
 
     withVat = Math.ceil(totalExVat * vat)
 
-    setVatPrice(withVat - totalExVat)
     setTotalPrice(vat === 0 ? totalExVat : withVat)
   }
 
@@ -154,7 +148,7 @@ const App = () => {
         />
         <Work
           specification={specification}
-          vatAmount={vatAmount}
+          vatAmount={0}
           vatPrice={0}
           totalPrice={totalPrice}
           isCreditInvoice={isCreditInvoice}
