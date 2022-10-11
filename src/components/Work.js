@@ -32,7 +32,7 @@ const Work = ({
             ))
           }
           <tr>
-            <td>Aktuella hyran baseras på avgift till förening, kapitalkostnad med aktuell ränta, internet, möblemang och slitage.</td>
+            <td>Aktuella hyran baseras på avgift till förening, kapitalkostnad med aktuell ränta, möblemang och slitage.</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
